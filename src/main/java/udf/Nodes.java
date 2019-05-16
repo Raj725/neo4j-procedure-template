@@ -27,7 +27,7 @@ public class Nodes {
     @UserFunction
     @Description("udf.getNodeByProperty('s1','s2') find and return the given company node")
     public Node getNodeByProperty(@Name("key") String key, @Name("value") String value) {
-        log.info("Key: {}, Value: {}", key, value);
+        log.info("Key: %s, Value: %s", key, value);
         if (key == null || value == null) {
             log.info("Null");
             return null;
@@ -38,7 +38,7 @@ public class Nodes {
     @UserFunction
     @Description("udf.getNodeByLabelProperty('s1','s2','s3') find and return the given nodes")
     public List<Node> getNodeByLabelProperty(@Name("label") String label, @Name("key") String key, @Name("value") String value) {
-        log.info("Label: {}, Key: {}, Value: {}", label, key, value);
+        log.info("Label: %s, Key: %s, Value: %s", label, key, value);
         if (label == null || key == null || value == null) {
             log.info("Null");
             return null;
