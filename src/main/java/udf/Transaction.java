@@ -1,3 +1,5 @@
+package udf;
+
 import org.neo4j.graphdb.*;
 import org.neo4j.logging.Log;
 import org.neo4j.procedure.Context;
@@ -18,7 +20,7 @@ public class Transaction {
     public Log log;
 
     @UserFunction("udf.fn_Parent_Child_tx_Sum")
-    @Description("fn_Parent_Child_tx_Sum('fromAddress','toAddress') return the total trancsactions from this address")
+    @Description("fn_Parent_Child_tx_Sum('fromAddress','toAddress') return the total trancsactions from this address to other address")
     public Double fn_Parent_Child_tx_Sum(@Name("value") String fromAddress, @Name("value") String toAddress) {
         log.info("Getting Transactions for Address: %s", fromAddress);
         if (fromAddress == null || toAddress == null) {
@@ -45,7 +47,7 @@ public class Transaction {
     }
 
     @UserFunction("udf.fn_Parent_Child_tx_Sum_2")
-    @Description("fn_Parent_Child_tx_Sum('fromAddressNode','toAddressNode') return the total trancsactions from this address")
+    @Description("fn_Parent_Child_tx_Sum('fromAddressNode','toAddressNode') return the total of trancsactions from this address node to other address node")
     public Double fn_Parent_Child_tx_Sum(@Name("from") Node fromAddressNode, @Name("to") Node toAddressNode) {
         log.info("Getting Transactions from Address: %s, to Address: %s", fromAddressNode, toAddressNode);
         if (fromAddressNode == null || toAddressNode == null) {
